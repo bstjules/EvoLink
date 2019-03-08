@@ -1,0 +1,21 @@
+{
+    "name":"mydummy",
+    "difficulty":"Beginner",
+    "timer": 300,
+    "gold": 60,
+    "silver": 180,
+    "bronze": 300,
+    "nodes":[
+        {"id":1, "xPos":-410, "yPos":470, "nodeStrength":1},
+        {"id":2, "xPos":-200, "yPos":250, "nodeStrength":2},
+        {"id":3, "xPos":15, "yPos":200, "nodeStrength":1},
+        {"id":4, "xPos":250, "yPos":-10, "nodeStrength":1},
+        {"id":5, "xPos":300, "yPos":-210, "nodeStrength":2}
+    ],
+    "tiles":[
+        {"id":1, "title":"Mercury", "extrainfo":"I like turtles"},
+        {"id":2, "title":"Venus", "extrainfo":"Who wouldnt"},
+        {"id":3, "title":"Earth", "extrainfo":"Me"},
+        {"id":4, "title":"Mars", "extrainfo":"Turtles are dumb"}
+    ]
+}
