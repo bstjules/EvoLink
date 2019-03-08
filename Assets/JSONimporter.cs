@@ -33,10 +33,13 @@ public class JSONimporter : MonoBehaviour
         [System.Serializable]
         public class Node
         {
+            public bool visible = false;
             public int id;
             public float xPos;
             public float yPos;
             public int nodeStrength;
+            public int cardinality;
+            public int adjacentNodes;
         }
 
         [System.Serializable]
@@ -45,6 +48,8 @@ public class JSONimporter : MonoBehaviour
             public int id;
             public string title;
             public string extrainfo;
+            public int cardinality;
+            public string tileStrength;
         }
         public static LevelInfo CreateFromJSON(string jsonString)
         {

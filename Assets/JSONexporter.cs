@@ -28,10 +28,13 @@ public class JSONexporter : MonoBehaviour
         [System.Serializable]
         public class Node
         {
+            public bool visible = false; //Default to allow control of game nodes shown on level load
             public int id;
             public float xPos;
             public float yPos;
             public int nodeStrength;
+            public int cardinality;
+            public int adjacentNodes;
         }
 
         [System.Serializable]
@@ -40,6 +43,8 @@ public class JSONexporter : MonoBehaviour
             public int id;
             public string title;
             public string extrainfo;
+            public int cardinality;
+            public string tileStrength;
         }
         public static LevelInfo CreateFromJSON(string jsonString)
         {
@@ -63,6 +68,7 @@ public class JSONexporter : MonoBehaviour
         info.tiles = new List<LevelInfo.Tile>();
 
         var strongnodes = GameObject.FindGameObjectsWithTag("NodeStrong");
+
         var tiles = GameObject.FindGameObjectsWithTag("Tile");
         int counter = 1;
         foreach (GameObject go in nodes)
@@ -81,7 +87,8 @@ public class JSONexporter : MonoBehaviour
             thisnode.xPos = go.transform.position.x;
             thisnode.yPos = go.transform.position.y;
             thisnode.id = counter;
-            thisnode.nodeStrength = 2;
+            thisnode.nodeStrength = 2; 
+            thisnode.visible = true; // Show strong nodes by default
             info.nodes.Add(thisnode);
             counter++;
         }
@@ -90,7 +97,7 @@ public class JSONexporter : MonoBehaviour
         {
 
             var thistile = new LevelInfo.Tile();
-            thistile.id = counter;
+            thistile.id = counter; // TODO: come up with real ID's
             thistile.title = go.GetComponentInChildren<TextMesh>().text;
             thistile.extrainfo = "I don't have extra info cause i suck.";
             info.tiles.Add(thistile);
